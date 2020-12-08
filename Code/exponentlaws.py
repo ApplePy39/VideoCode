@@ -200,7 +200,7 @@ class QuotientPowers(Scene):
             FadeOut(start),
             FadeOut(QuotientExplain[2]))
         
-        EQuestions = TextMobject("Example Questions:").move_to(UP*2.5)
+        EQuestions = TextMobject("Example Questions:").move_to(UP*2.75)
         EQuestions.scale(1.75)
         EQuestions.set_color(color=[BLUE, RED])
 
@@ -208,10 +208,10 @@ class QuotientPowers(Scene):
         self.play(Write(EQuestions))
 
         ExampleQuestionsQuotient = VGroup(
-            TexMobject("3^7 \divisionsymbol 3^4 = 3^{7-4}").move_to(DOWN*0.25),
-            TexMobject("3^7 \divisionsymbol 3^4 = 3^{3}").move_to(DOWN*0.5),
-            TexMobject("3^3").move_to(DOWN*75))
-
+            TexMobject("3^7 \divisionsymbol 3^4 = 3^{7-4}").move_to(DOWN*1),
+            TexMobject("3^7 \divisionsymbol 3^4 = 3^{3}").move_to(DOWN*1.75),
+            TexMobject("3^3").move_to(DOWN*2.5))
+        
         ExampleQuestionsQuotient.set_color(color=[ORANGE, PINK])
         ExampleQuestionsQuotient.scale(1.75)
 
@@ -223,3 +223,35 @@ class QuotientPowers(Scene):
 
         self.play(TransformFromCopy(ExampleQuestionsQuotient[0], ExampleQuestionsQuotient[1]))
         self.wait()
+
+        self.play(TransformFromCopy(ExampleQuestionsQuotient[1], ExampleQuestionsQuotient[2]))
+        self.wait()
+
+        self.play(
+            *[FadeOut(mob)for mob in self.mobjects])
+
+        self.wait()
+
+        ExampleQuestionsQuotient2 = VGroup(
+            TexMobject("8^3 \divisionsymbol 8^6 = 8^{3-6}").move_to(UP*1),
+            TexMobject("8^3 \divisionsymbol 8^6 = 8^{-3}"),
+            TexMobject("8^{-3}").move_to(DOWN*1))
+
+        ExampleQuestionsQuotient2.set_color(color=[ORANGE, PINK])
+        ExampleQuestionsQuotient2.scale(2)
+
+
+        self.play(Write(ExampleQuestionsQuotient2[0]))
+        self.wait()
+
+        self.play(TransformFromCopy(ExampleQuestionsQuotient2[0], ExampleQuestionsQuotient2[1]))
+        self.wait()
+
+        self.play(TransformFromCopy(ExampleQuestionsQuotient2[1], ExampleQuestionsQuotient2[2]))
+        self.wait()
+
+        self.play(
+            *[FadeOut(mob)for mob in self.mobjects])
+
+        self.wait()
+
