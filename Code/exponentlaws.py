@@ -23,7 +23,6 @@ class WelcomeScene(Scene):
             *[FadeOut(mob)for mob in self.mobjects])
 
         WhatAre = TextMobject("What are exponent laws?").set_color(color=[BLUE, RED])
-        WhatAre.move_to(UP*2.5)
         WhatAre.scale(1.5)
 
         self.play(Write(WhatAre))
@@ -43,7 +42,7 @@ class WelcomeScene(Scene):
         Laws.set_color(color=[BLUE, RED])
         Laws[2:].scale(0.75)
 
-        self.play(Write(Laws[0:6], run_time=5))
+        self.play(Write(Laws[0:6], run_time=6))
 
         self.play(Laws[2:6].move_to, (LEFT*3+DOWN*0.5))
         self.wait(1)
@@ -60,7 +59,7 @@ class ProductPowers(MovingCameraScene):
     def construct(self):
        
         start = TextMobject("Product of Powers").set_color(color=[BLUE, RED])
-        start.scale(1.5)
+        -start.scale(1.5)- 37
 
         self.play(Write(start))
         self.play(start.move_to, (UP*3))
@@ -88,8 +87,7 @@ class ProductPowers(MovingCameraScene):
         Must = TextMobject("All powers must have the same base for").move_to(UP*2)
         Must2 = TextMobject("these exponent laws.").move_to(UP*1)
     
-        MustG = VGroup(Must, Must2).set_color(color=[BLUE, RED])
-        
+        MustG = VGroup(Must, Must2).set_color(color=[BLUE, RED])                             
         self.play(Write(MustG))
         
         self.wait(2)
@@ -166,6 +164,28 @@ class ProductPowers(MovingCameraScene):
         self.wait(2)
         
         self.play(TransformFromCopy(PExamples[1], PExamples[2]))
+        self.wait(2)
+        
+        self.play(
+            *[FadeOut(mob)for mob in self.mobjects])
+
+        self.wait()
+
+        PExamples2 = VGroup(
+           TexMobject("5^3 \\cdot 5^1 = 5^{3+1}").move_to(UP*1),
+           TexMobject("5^3 \\cdot 5^1 = 5^{4}"),
+           TexMobject("5^{4}").move_to(DOWN*1))
+        
+        PExamples2.set_color(color=[ORANGE, PINK])
+        PExamples2.scale(2)
+
+        self.play(Write(PExamples2[0]))
+        self.wait(1)
+        
+        self.play(TransformFromCopy(PExamples2[0], PExamples2[1]))
+        self.wait(2)
+        
+        self.play(TransformFromCopy(PExamples2[1], PExamples2[2]))
         self.wait(2)
         
         self.play(
@@ -248,6 +268,29 @@ class QuotientPowers(Scene):
         self.wait()
 
         self.play(TransformFromCopy(ExampleQuestionsQuotient2[1], ExampleQuestionsQuotient2[2]))
+        self.wait()
+
+        self.play(
+            *[FadeOut(mob)for mob in self.mobjects])
+
+        self.wait()
+
+        ExampleQuestionsQuotient3 = VGroup(
+            TexMobject("19^9 \divisionsymbol 19^4 = 19^{9-4}").move_to(UP*1),
+            TexMobject("19^9 \divisionsymbol 19^4 = 19^{5}"),
+            TexMobject("19^{5}").move_to(DOWN*1))
+
+        ExampleQuestionsQuotient3.set_color(color=[ORANGE, PINK])
+        ExampleQuestionsQuotient3.scale(2)
+
+
+        self.play(Write(ExampleQuestionsQuotient3[0]))
+        self.wait()
+
+        self.play(TransformFromCopy(ExampleQuestionsQuotient3[0], ExampleQuestionsQuotient3[1]))
+        self.wait()
+
+        self.play(TransformFromCopy(ExampleQuestionsQuotient3[1], ExampleQuestionsQuotient3[2]))
         self.wait()
 
         self.play(
