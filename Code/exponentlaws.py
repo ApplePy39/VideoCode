@@ -349,4 +349,69 @@ class EvaluateExpressions(MovingCameraScene):
         self.play(self.camera_frame.move_to, ExpressionI[5], self.camera_frame.set_width, ExpressionI[5].get_width()*1.75)
         self.wait(2)
 
-         
+        self.play(
+            *[FadeOut(mob)for mob in self.mobjects])
+
+        self.wait()
+
+        ExpressionII = VGroup(
+            TexMobject("6^6 \divisionsymbol 6^5 \cdot 6^2").move_to(UP*2),
+            TexMobject("= 6^{6-5} \cdot 6^2").move_to(UP*1),
+            TexMobject("= 6^1 \cdot 6^2"),
+            TexMobject("= 6^{1+2}").move_to(DOWN*1),
+            TexMobject("= 6^3").move_to(DOWN*2),
+            TexMobject("= 216").move_to(DOWN*3))
+
+        ExpressionII.set_color(color=[ORANGE, PINK])
+        ExpressionII.scale(2)
+
+        self.play(Write(ExpressionII[0]))
+        self.play(self.camera_frame.move_to, ExpressionII[0], self.camera_frame.set_width, ExpressionII[0].get_width()*1.75)
+        self.wait(2)
+
+        self.play(TransformFromCopy(ExpressionII[0], ExpressionII[1]))
+        self.play(self.camera_frame.move_to, ExpressionII[1], self.camera_frame.set_width, ExpressionII[1].get_width()*1.75)
+        self.wait(2)
+
+        self.play(TransformFromCopy(ExpressionII[1], ExpressionII[2]))
+        self.play(self.camera_frame.move_to, ExpressionII[2], self.camera_frame.set_width, ExpressionII[2].get_width()*1.75)
+        self.wait(2)
+
+        self.play(TransformFromCopy(ExpressionII[2], ExpressionII[3]))
+        self.play(self.camera_frame.move_to, ExpressionII[3], self.camera_frame.set_width, ExpressionII[3].get_width()*1.75)
+        self.wait(2)
+
+        self.play(TransformFromCopy(ExpressionII[3], ExpressionII[4]))
+        self.play(self.camera_frame.move_to, ExpressionII[4], self.camera_frame.set_width, ExpressionII[4].get_width()*1.75)
+        self.wait(2)
+
+        self.play(TransformFromCopy(ExpressionII[4], ExpressionII[5]))
+        self.play(self.camera_frame.move_to, ExpressionII[5], self.camera_frame.set_width, ExpressionII[5].get_width()*1.75)
+        self.wait(2)
+
+        self.play(
+            *[FadeOut(mob)for mob in self.mobjects])
+
+class PowerOfPower(Scene):
+    def construct(self):
+
+        PowerOfPowerText = TextMobject("Power of Power").set_color(color=[BLUE, RED])
+        PowerOfPowerText.scale(2)
+
+
+        self.play(Write(PowerOfPowerText))
+        self.wait()
+
+        self.play(PowerOfPowerText.move_to, UP*2.5)
+        self.wait()
+
+        PowerOfPowerExplain = VGroup(
+            TextMobject("To raise a power to a power, multiply the exponents.").move_to(UP*1),
+            TexMobject("(a^m)^n = a^{m\\cdot n}").move_to(DOWN*0.5),
+            TextMobject("This is the formula for Power of a Power").move_to(DOWN*2))
+
+        PowerOfPowerExplain.set_color(color=[BLUE, RED])
+        PowerOfPowerExplain[1].scale(2)
+        PowerOfPowerExplain[1].set_color(color=[ORANGE, PINK])
+
+        self.play(Write(PowerOfPowerExplain), run_time=5)
