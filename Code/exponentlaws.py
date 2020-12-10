@@ -236,16 +236,16 @@ class QuotientPowers(Scene):
         ExampleQuestionsQuotient.scale(1.75)
 
         self.play(QuotientExplain[1].move_to, UP*1)
-        self.wait()
+        self.wait(2)
 
         self.play(TransformFromCopy(QuotientExplain[1], ExampleQuestionsQuotient[0]))
-        self.wait()
+        self.wait(2)
 
         self.play(TransformFromCopy(ExampleQuestionsQuotient[0], ExampleQuestionsQuotient[1]))
-        self.wait()
+        self.wait(2)
 
         self.play(TransformFromCopy(ExampleQuestionsQuotient[1], ExampleQuestionsQuotient[2]))
-        self.wait()
+        self.wait(2)
 
         self.play(
             *[FadeOut(mob)for mob in self.mobjects])
@@ -262,13 +262,13 @@ class QuotientPowers(Scene):
 
 
         self.play(Write(ExampleQuestionsQuotient2[0]))
-        self.wait()
+        self.wait(2)
 
         self.play(TransformFromCopy(ExampleQuestionsQuotient2[0], ExampleQuestionsQuotient2[1]))
-        self.wait()
+        self.wait(2)
 
         self.play(TransformFromCopy(ExampleQuestionsQuotient2[1], ExampleQuestionsQuotient2[2]))
-        self.wait()
+        self.wait(2)
 
         self.play(
             *[FadeOut(mob)for mob in self.mobjects])
@@ -285,16 +285,68 @@ class QuotientPowers(Scene):
 
 
         self.play(Write(ExampleQuestionsQuotient3[0]))
-        self.wait()
+        self.wait(2)
 
         self.play(TransformFromCopy(ExampleQuestionsQuotient3[0], ExampleQuestionsQuotient3[1]))
-        self.wait()
+        self.wait(2)
 
         self.play(TransformFromCopy(ExampleQuestionsQuotient3[1], ExampleQuestionsQuotient3[2]))
-        self.wait()
+        self.wait(2)
 
         self.play(
             *[FadeOut(mob)for mob in self.mobjects])
 
         self.wait()
 
+class EvaluateExpressions(MovingCameraScene):
+    def construct(self):
+
+
+        EvaluateExpressions = TextMobject("Let's evaluate some expressions using the Product and").move_to(UP*0.5)
+        EvaluateExpressions2 = TextMobject("Quotient exponent laws that we learned.").move_to(DOWN*0.5)
+
+        PExpressions = VGroup(EvaluateExpressions, EvaluateExpressions2).set_color(color=[BLUE, RED])
+
+
+        self.play(Write(PExpressions), run_time=3)
+        self.wait(2)
+
+        self.play(FadeOut(PExpressions))
+        self.wait()
+
+        ExpressionI = VGroup(
+            TexMobject("3^2 \\cdot 3^4 \divisionsymbol\small 3^3").move_to(UP*2),
+            TexMobject("= 3^{2+4} \divisionsymbol\small 3^3").move_to(UP*1),
+            TexMobject("= 3^6 \divisionsymbol\small 3^3"),
+            TexMobject("= 3^{6-3}").move_to(DOWN*1),
+            TexMobject("= 3^3").move_to(DOWN*2),
+            TexMobject("= 27").move_to(DOWN*3))
+
+        ExpressionI.set_color(color=[ORANGE, PINK])
+        ExpressionI.scale(2)
+
+        self.play(Write(ExpressionI[0]))
+        self.play(self.camera_frame.move_to, ExpressionI[0], self.camera_frame.set_width, ExpressionI[0].get_width()*1.75)
+        self.wait(2)
+
+        self.play(TransformFromCopy(ExpressionI[0], ExpressionI[1]))
+        self.play(self.camera_frame.move_to, ExpressionI[1], self.camera_frame.set_width, ExpressionI[1].get_width()*1.75)
+        self.wait(2)
+
+        self.play(TransformFromCopy(ExpressionI[1], ExpressionI[2]))
+        self.play(self.camera_frame.move_to, ExpressionI[2], self.camera_frame.set_width, ExpressionI[2].get_width()*1.75)
+        self.wait(2)
+
+        self.play(TransformFromCopy(ExpressionI[2], ExpressionI[3]))
+        self.play(self.camera_frame.move_to, ExpressionI[3], self.camera_frame.set_width, ExpressionI[3].get_width()*1.75)
+        self.wait(2)
+
+        self.play(TransformFromCopy(ExpressionI[3], ExpressionI[4]))
+        self.play(self.camera_frame.move_to, ExpressionI[4], self.camera_frame.set_width, ExpressionI[4].get_width()*1.75)
+        self.wait(2)
+
+        self.play(TransformFromCopy(ExpressionI[4], ExpressionI[5]))
+        self.play(self.camera_frame.move_to, ExpressionI[5], self.camera_frame.set_width, ExpressionI[5].get_width()*1.75)
+        self.wait(2)
+
+         
