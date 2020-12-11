@@ -437,7 +437,8 @@ class PowerOfPower(MovingCameraScene):
         self.play(Write(LExamplesPower))
         self.wait()
         
-        self.play(LExamplesPower.move_to, UP*2)
+        self.play(FadeOut(LExamplesPower))
+        self.wait()
 
         ExampleQuestionsPowerOfPower = VGroup(
             TexMobject("(4^2)^3").move_to(UP*1),
@@ -445,20 +446,19 @@ class PowerOfPower(MovingCameraScene):
             TexMobject("3^6").move_to(DOWN*1))
 
         ExampleQuestionsPowerOfPower.set_color(color=[ORANGE, PINK])
-        ExampleQuestionsPowerOfPower.scale(2)
+        ExampleQuestionsPowerOfPower.scale(1.5)
 
         self.play(Write(ExampleQuestionsPowerOfPower[0]))
         self.play(self.camera_frame.move_to, ExampleQuestionsPowerOfPower[0], self.camera_frame.set_width, 
-        ExampleQuestionsPowerOfPower[0].get_width()*1.75)
+        ExampleQuestionsPowerOfPower[0].get_width()*2)
         self.wait(2)
 
-        self.play(Write(ExampleQuestionsPowerOfPower[0]))
-        self.play(self.camera_frame.move_to, ExampleQuestionsPowerOfPower[0], self.camera_frame.set_width, 
-        ExampleQuestionsPowerOfPower[0].get_width()*1.75)
+        self.play(TransformFromCopy(ExampleQuestionsPowerOfPower[0], ExampleQuestionsPowerOfPower[1]))
+        self.play(self.camera_frame.move_to, ExampleQuestionsPowerOfPower[1], self.camera_frame.set_width, 
+        ExampleQuestionsPowerOfPower[1].get_width()*2)
         self.wait(2)
 
-        self.play(Write(ExampleQuestionsPowerOfPower[0]))
-        self.play(self.camera_frame.move_to, ExampleQuestionsPowerOfPower[0], self.camera_frame.set_width, 
-        ExampleQuestionsPowerOfPower[0].get_width()*1.75)
+        self.play(TransformFromCopy(ExampleQuestionsPowerOfPower[1], ExampleQuestionsPowerOfPower[2]))
+        self.play(self.camera_frame.move_to, ExampleQuestionsPowerOfPower[2], self.camera_frame.set_width, 
+        ExampleQuestionsPowerOfPower[2].get_width()*3)
         self.wait(2)
-         
