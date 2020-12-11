@@ -392,7 +392,7 @@ class EvaluateExpressions(MovingCameraScene):
         self.play(
             *[FadeOut(mob)for mob in self.mobjects])
 
-class PowerOfPower(Scene):
+class PowerOfPower(MovingCameraScene):
     def construct(self):
 
         PowerOfPowerText = TextMobject("Power of Power").set_color(color=[BLUE, RED])
@@ -402,16 +402,63 @@ class PowerOfPower(Scene):
         self.play(Write(PowerOfPowerText))
         self.wait()
 
-        self.play(PowerOfPowerText.move_to, UP*2.5)
+        self.play(PowerOfPowerText.move_to, UP*3)
         self.wait()
 
         PowerOfPowerExplain = VGroup(
+            TextMobject("We can raise a power to a power.").move_to(UP*0.5),
+            TextMobject("For example, $3^2$ raised to the power 4").move_to(DOWN*0.5),
+            TextMobject("is written as $(3^2)^4$").move_to(DOWN*1.5),
+            TextMobject("$(3^2)^4$ is a power of a power.").move_to(DOWN*2.5))
+
+        PowerOfPowerExplain.set_color(color=[BLUE, RED])
+        self.play(Write(PowerOfPowerExplain), run_time=6)
+        self.wait(2)
+
+        self.play(*[FadeOut(mob)for mob in self.mobjects])
+        self.wait()
+
+        PowerOfPowerExplainII = VGroup(
             TextMobject("To raise a power to a power, multiply the exponents.").move_to(UP*1),
             TexMobject("(a^m)^n = a^{m\\cdot n}").move_to(DOWN*0.5),
             TextMobject("This is the formula for Power of a Power").move_to(DOWN*2))
 
-        PowerOfPowerExplain.set_color(color=[BLUE, RED])
-        PowerOfPowerExplain[1].scale(2)
-        PowerOfPowerExplain[1].set_color(color=[ORANGE, PINK])
+        PowerOfPowerExplainII.set_color(color=[BLUE, RED])
+        PowerOfPowerExplainII[1].scale(2)
+        PowerOfPowerExplainII[1].set_color(color=[ORANGE, PINK])
 
-        self.play(Write(PowerOfPowerExplain), run_time=5)
+        self.play(Write(PowerOfPowerExplainII), run_time=5)
+
+        self.play(
+            *[FadeOut(mob)for mob in self.mobjects])
+
+        LExamplesPower = TextMobject("Let's do some example questions:").set_color(color=[BLUE, RED])
+        LExamplesPower.scale(1.5)
+        self.play(Write(LExamplesPower))
+        self.wait()
+        
+        self.play(LExamplesPower.move_to, UP*2)
+
+        ExampleQuestionsPowerOfPower = VGroup(
+            TexMobject("(4^2)^3").move_to(UP*1),
+            TexMobject("= 3^{2 \\cdot 3}"),
+            TexMobject("3^6").move_to(DOWN*1))
+
+        ExampleQuestionsPowerOfPower.set_color(color=[ORANGE, PINK])
+        ExampleQuestionsPowerOfPower.scale(2)
+
+        self.play(Write(ExampleQuestionsPowerOfPower[0]))
+        self.play(self.camera_frame.move_to, ExampleQuestionsPowerOfPower[0], self.camera_frame.set_width, 
+        ExampleQuestionsPowerOfPower[0].get_width()*1.75)
+        self.wait(2)
+
+        self.play(Write(ExampleQuestionsPowerOfPower[0]))
+        self.play(self.camera_frame.move_to, ExampleQuestionsPowerOfPower[0], self.camera_frame.set_width, 
+        ExampleQuestionsPowerOfPower[0].get_width()*1.75)
+        self.wait(2)
+
+        self.play(Write(ExampleQuestionsPowerOfPower[0]))
+        self.play(self.camera_frame.move_to, ExampleQuestionsPowerOfPower[0], self.camera_frame.set_width, 
+        ExampleQuestionsPowerOfPower[0].get_width()*1.75)
+        self.wait(2)
+         
