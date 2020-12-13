@@ -19,8 +19,7 @@ class WelcomeScene(Scene):
         self.play(Write(WelcomeText2))
         self.wait(1)
 
-        self.play(
-            *[FadeOut(mob)for mob in self.mobjects])
+        self.play(*[FadeOut(mob)for mob in self.mobjects])
 
         WhatAre = TextMobject("What are exponent laws?").set_color(color=[BLUE, RED])
         WhatAre.scale(1.5)
@@ -50,8 +49,7 @@ class WelcomeScene(Scene):
         self.play(Write(Laws[6:]))
         self.wait(1)
 
-        self.play(
-            *[FadeOut(mob)for mob in self.mobjects])
+        self.play(*[FadeOut(mob)for mob in self.mobjects])
 
         self.wait(2)
 
@@ -59,7 +57,7 @@ class ProductPowers(MovingCameraScene):
     def construct(self):
        
         start = TextMobject("Product of Powers").set_color(color=[BLUE, RED])
-        -start.scale(1.5)- 37
+        start.scale(1.5)- 37
 
         self.play(Write(start))
         self.play(start.move_to, (UP*3))
@@ -137,8 +135,7 @@ class ProductPowers(MovingCameraScene):
         self.play(Write(ProductGroup))
         self.wait(2)
         
-        self.play(
-            *[FadeOut(mob)for mob in self.mobjects])
+        self.play(*[FadeOut(mob)for mob in self.mobjects])
         
         ONEMEX = TextMobject("Here are a few more examples:").set_color(color=[BLUE, RED])
         ONEMEX.scale(1.5)
@@ -166,8 +163,7 @@ class ProductPowers(MovingCameraScene):
         self.play(TransformFromCopy(PExamples[1], PExamples[2]))
         self.wait(2)
         
-        self.play(
-            *[FadeOut(mob)for mob in self.mobjects])
+        self.play(*[FadeOut(mob)for mob in self.mobjects])
 
         self.wait()
 
@@ -188,8 +184,7 @@ class ProductPowers(MovingCameraScene):
         self.play(TransformFromCopy(PExamples2[1], PExamples2[2]))
         self.wait(2)
         
-        self.play(
-            *[FadeOut(mob)for mob in self.mobjects])
+        self.play(*[FadeOut(mob)for mob in self.mobjects])
         
 class QuotientPowers(Scene):
     def construct(self):
@@ -247,8 +242,7 @@ class QuotientPowers(Scene):
         self.play(TransformFromCopy(ExampleQuestionsQuotient[1], ExampleQuestionsQuotient[2]))
         self.wait(2)
 
-        self.play(
-            *[FadeOut(mob)for mob in self.mobjects])
+        self.play(*[FadeOut(mob)for mob in self.mobjects])
 
         self.wait()
 
@@ -270,8 +264,7 @@ class QuotientPowers(Scene):
         self.play(TransformFromCopy(ExampleQuestionsQuotient2[1], ExampleQuestionsQuotient2[2]))
         self.wait(2)
 
-        self.play(
-            *[FadeOut(mob)for mob in self.mobjects])
+        self.play(*[FadeOut(mob)for mob in self.mobjects])
 
         self.wait()
 
@@ -293,8 +286,7 @@ class QuotientPowers(Scene):
         self.play(TransformFromCopy(ExampleQuestionsQuotient3[1], ExampleQuestionsQuotient3[2]))
         self.wait(2)
 
-        self.play(
-            *[FadeOut(mob)for mob in self.mobjects])
+        self.play(*[FadeOut(mob)for mob in self.mobjects])
 
         self.wait()
 
@@ -328,8 +320,7 @@ class EvaluateExpressions(MovingCameraScene):
             ExpressionI[i].get_width()*1.75)
             self.wait(1)
 
-        self.play(
-            *[FadeOut(mob)for mob in self.mobjects])
+        self.play(*[FadeOut(mob)for mob in self.mobjects])
 
         self.wait()
 
@@ -347,8 +338,7 @@ class EvaluateExpressions(MovingCameraScene):
             ExpressionII[i].get_width()*1.75)
             self.wait(1)
 
-        self.play(
-            *[FadeOut(mob)for mob in self.mobjects])
+        self.play(*[FadeOut(mob)for mob in self.mobjects])
 
 class PowerOfPower(MovingCameraScene):
     def construct(self):
@@ -387,8 +377,7 @@ class PowerOfPower(MovingCameraScene):
 
         self.play(Write(PowerOfPowerExplainII), run_time=5)
 
-        self.play(
-            *[FadeOut(mob)for mob in self.mobjects])
+        self.play(*[FadeOut(mob)for mob in self.mobjects])
 
         LExamplesPower = TextMobject("Let's do some example questions:").set_color(color=[BLUE, RED])
         LExamplesPower.scale(1.5)
@@ -409,8 +398,7 @@ class PowerOfPower(MovingCameraScene):
             ExampleQuestionsPowerOfPower[i].get_width()*2)
             self.wait(1)
 
-        self.play(
-            *[FadeOut(mob)for mob in self.mobjects])
+        self.play(*[FadeOut(mob)for mob in self.mobjects])
 
         self.wait()
 
@@ -425,9 +413,19 @@ class PowerOfPower(MovingCameraScene):
             ExampleQuestionsPowerOfPowerII[i].get_width()*2)
             self.wait(1)
 
-        self.play(
-            *[FadeOut(mob)for mob in self.mobjects])
+        self.play(*[FadeOut(mob)for mob in self.mobjects])
 
         self.wait()
 
+class PowersWithExponentZero(MovingCameraScene):
+    def construct(self):
 
+        startingWords = TextMobject("Powers with an Exponent").move_to(UP*0.5)
+        startingWordsII = TextMobject("of Zero.").move_to(DOWN*0.5)
+
+        SWords = VGroup(startingWords, startingWordsII).scale(2).set_color(color=[BLUE, RED])
+
+        self.play(Write(SWords))
+        self.wait()
+
+        self.play(*[FadeOut(mob)for mob in self.mobjects])
