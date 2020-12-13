@@ -1,3 +1,7 @@
+
+# As I was writing the code, I learned knew strategies so if the code style changes, that's why.
+# Yes I know these variable names are not great.
+
 from manimlib.imports import *
 
 class WelcomeScene(Scene):
@@ -425,7 +429,40 @@ class PowersWithExponentZero(MovingCameraScene):
 
         SWords = VGroup(startingWords, startingWordsII).scale(2).set_color(color=[BLUE, RED])
 
-        self.play(Write(SWords))
+        self.play(Write(SWords, run_time=3))
         self.wait()
 
         self.play(*[FadeOut(mob)for mob in self.mobjects])
+        self.wait()
+
+        ExpoZeroExplain = TextMobject("Powers with an exponent of").move_to(UP*0.5)
+        ExpoZeroExplainII = TextMobject("zero will always equal 1").move_to(DOWN*0.5)
+
+        ZeroExplainGroup = VGroup(ExpoZeroExplain, ExpoZeroExplainII).scale(2).set_color(color=[BLUE, RED])
+
+        self.play(Write(ZeroExplainGroup, run_time=3))
+        self.wait()
+
+        self.play(*[FadeOut(mob)for mob in self.mobjects])
+        self.wait()
+        
+        ExpoZeroEquations = VGroup(
+            TexMobject("3^0").move_to(LEFT*2+UP*0.5),
+            TexMobject("= 1").move_to(LEFT*2+DOWN*0.5),
+            TexMobject("6^0").move_to(UP*0.5),
+            TexMobject("= 1").move_to(DOWN*0.5),
+            TexMobject("1^0").move_to(RIGHT*2+UP*0.5),
+            TexMobject("= 1").move_to(RIGHT*2+DOWN*0.5)
+        ).set_color(color=[ORANGE, PINK]).scale(2)
+
+        ZeroAYCS = TextMobject("As you can see, all these equal 1.").scale(1.5).set_color(color=[BLUE, RED]).move_to(DOWN*2)
+
+        self.play(Write(ExpoZeroEquations), run_time=5)
+        self.wait(2)
+
+        self.play(ExpoZeroEquations.move_to, UP)
+
+        self.play(Write(ZeroAYCS), run_time=2)
+
+        self.play(*[FadeOut(mob)for mob in self.mobjects])
+        self.wait()
