@@ -320,34 +320,13 @@ class EvaluateExpressions(MovingCameraScene):
             TexMobject("= 3^6 \divisionsymbol\small 3^3"),
             TexMobject("= 3^{6-3}").move_to(DOWN*1),
             TexMobject("= 3^3").move_to(DOWN*2),
-            TexMobject("= 27").move_to(DOWN*3))
+            TexMobject("= 27").move_to(DOWN*3)).set_color(color=[ORANGE, PINK]).scale(2)
 
-        ExpressionI.set_color(color=[ORANGE, PINK])
-        ExpressionI.scale(2)
-
-        self.play(Write(ExpressionI[0]))
-        self.play(self.camera_frame.move_to, ExpressionI[0], self.camera_frame.set_width, ExpressionI[0].get_width()*1.75)
-        self.wait(2)
-
-        self.play(TransformFromCopy(ExpressionI[0], ExpressionI[1]))
-        self.play(self.camera_frame.move_to, ExpressionI[1], self.camera_frame.set_width, ExpressionI[1].get_width()*1.75)
-        self.wait(2)
-
-        self.play(TransformFromCopy(ExpressionI[1], ExpressionI[2]))
-        self.play(self.camera_frame.move_to, ExpressionI[2], self.camera_frame.set_width, ExpressionI[2].get_width()*1.75)
-        self.wait(2)
-
-        self.play(TransformFromCopy(ExpressionI[2], ExpressionI[3]))
-        self.play(self.camera_frame.move_to, ExpressionI[3], self.camera_frame.set_width, ExpressionI[3].get_width()*1.75)
-        self.wait(2)
-
-        self.play(TransformFromCopy(ExpressionI[3], ExpressionI[4]))
-        self.play(self.camera_frame.move_to, ExpressionI[4], self.camera_frame.set_width, ExpressionI[4].get_width()*1.75)
-        self.wait(2)
-
-        self.play(TransformFromCopy(ExpressionI[4], ExpressionI[5]))
-        self.play(self.camera_frame.move_to, ExpressionI[5], self.camera_frame.set_width, ExpressionI[5].get_width()*1.75)
-        self.wait(2)
+        for i in range(5):
+            self.play(Write(ExpressionI[i]))
+            self.play(self.camera_frame.move_to, ExpressionI[i], self.camera_frame.set_width, 
+            ExpressionI[i].get_width()*1.75)
+            self.wait(1)
 
         self.play(
             *[FadeOut(mob)for mob in self.mobjects])
@@ -360,34 +339,13 @@ class EvaluateExpressions(MovingCameraScene):
             TexMobject("= 6^1 \cdot 6^2"),
             TexMobject("= 6^{1+2}").move_to(DOWN*1),
             TexMobject("= 6^3").move_to(DOWN*2),
-            TexMobject("= 216").move_to(DOWN*3))
+            TexMobject("= 216").move_to(DOWN*3)).set_color(color=[ORANGE, PINK]).scale(2)
 
-        ExpressionII.set_color(color=[ORANGE, PINK])
-        ExpressionII.scale(2)
-
-        self.play(Write(ExpressionII[0]))
-        self.play(self.camera_frame.move_to, ExpressionII[0], self.camera_frame.set_width, ExpressionII[0].get_width()*1.75)
-        self.wait(2)
-
-        self.play(TransformFromCopy(ExpressionII[0], ExpressionII[1]))
-        self.play(self.camera_frame.move_to, ExpressionII[1], self.camera_frame.set_width, ExpressionII[1].get_width()*1.75)
-        self.wait(2)
-
-        self.play(TransformFromCopy(ExpressionII[1], ExpressionII[2]))
-        self.play(self.camera_frame.move_to, ExpressionII[2], self.camera_frame.set_width, ExpressionII[2].get_width()*1.75)
-        self.wait(2)
-
-        self.play(TransformFromCopy(ExpressionII[2], ExpressionII[3]))
-        self.play(self.camera_frame.move_to, ExpressionII[3], self.camera_frame.set_width, ExpressionII[3].get_width()*1.75)
-        self.wait(2)
-
-        self.play(TransformFromCopy(ExpressionII[3], ExpressionII[4]))
-        self.play(self.camera_frame.move_to, ExpressionII[4], self.camera_frame.set_width, ExpressionII[4].get_width()*1.75)
-        self.wait(2)
-
-        self.play(TransformFromCopy(ExpressionII[4], ExpressionII[5]))
-        self.play(self.camera_frame.move_to, ExpressionII[5], self.camera_frame.set_width, ExpressionII[5].get_width()*1.75)
-        self.wait(2)
+        for i in range(5):
+            self.play(Write(ExpressionII[i]))
+            self.play(self.camera_frame.move_to, ExpressionII[i], self.camera_frame.set_width, 
+            ExpressionII[i].get_width()*1.75)
+            self.wait(1)
 
         self.play(
             *[FadeOut(mob)for mob in self.mobjects])
@@ -443,22 +401,33 @@ class PowerOfPower(MovingCameraScene):
         ExampleQuestionsPowerOfPower = VGroup(
             TexMobject("(4^2)^3").move_to(UP*1),
             TexMobject("= 3^{2 \\cdot 3}"),
-            TexMobject("3^6").move_to(DOWN*1))
+            TexMobject("= 3^6").move_to(DOWN*1)).set_color(color=[ORANGE, PINK]).scale(1.5)
 
-        ExampleQuestionsPowerOfPower.set_color(color=[ORANGE, PINK])
-        ExampleQuestionsPowerOfPower.scale(1.5)
+        for i in range(3):
+            self.play(Write(ExampleQuestionsPowerOfPower[i]))
+            self.play(self.camera_frame.move_to, ExampleQuestionsPowerOfPower[i], self.camera_frame.set_width, 
+            ExampleQuestionsPowerOfPower[i].get_width()*2)
+            self.wait(1)
 
-        self.play(Write(ExampleQuestionsPowerOfPower[0]))
-        self.play(self.camera_frame.move_to, ExampleQuestionsPowerOfPower[0], self.camera_frame.set_width, 
-        ExampleQuestionsPowerOfPower[0].get_width()*2)
-        self.wait(2)
+        self.play(
+            *[FadeOut(mob)for mob in self.mobjects])
 
-        self.play(TransformFromCopy(ExampleQuestionsPowerOfPower[0], ExampleQuestionsPowerOfPower[1]))
-        self.play(self.camera_frame.move_to, ExampleQuestionsPowerOfPower[1], self.camera_frame.set_width, 
-        ExampleQuestionsPowerOfPower[1].get_width()*2)
-        self.wait(2)
+        self.wait()
 
-        self.play(TransformFromCopy(ExampleQuestionsPowerOfPower[1], ExampleQuestionsPowerOfPower[2]))
-        self.play(self.camera_frame.move_to, ExampleQuestionsPowerOfPower[2], self.camera_frame.set_width, 
-        ExampleQuestionsPowerOfPower[2].get_width()*3)
-        self.wait(2)
+        ExampleQuestionsPowerOfPowerII = VGroup(
+            TexMobject("(6^7)^2").move_to(UP*1),
+            TexMobject("= 6^{7 \\cdot 2}"),
+            TexMobject("= 6^{14}").move_to(DOWN*1)).set_color(color=[ORANGE, PINK]).scale(1.5)
+
+        for i in range(3):
+            self.play(Write(ExampleQuestionsPowerOfPowerII[i]))
+            self.play(self.camera_frame.move_to, ExampleQuestionsPowerOfPowerII[i], self.camera_frame.set_width, 
+            ExampleQuestionsPowerOfPowerII[i].get_width()*2)
+            self.wait(1)
+
+        self.play(
+            *[FadeOut(mob)for mob in self.mobjects])
+
+        self.wait()
+
+
