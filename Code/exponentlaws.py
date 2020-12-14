@@ -4,6 +4,16 @@
 
 from manimlib.imports import *
 
+class Thumbnail(Scene):
+    def construct(self):
+
+        ThumbnailText = TextMobject("Exponent").move_to(UP*0.5)
+        ThumbnailTextII = TextMobject("Laws").move_to(DOWN*0.5)
+
+        Thumbnail = VGroup(ThumbnailText, ThumbnailTextII).scale(3).set_color(color=[BLUE, RED])
+
+        self.play(ShowCreation(Thumbnail))
+
 class WelcomeScene(Scene):
     def construct(self):
 
@@ -411,10 +421,10 @@ class PowerOfPower(MovingCameraScene):
             TexMobject("= 6^{7 \\cdot 2}"),
             TexMobject("= 6^{14}").move_to(DOWN*1)).set_color(color=[ORANGE, PINK]).scale(1.5)
 
-        for i in range(3):
-            self.play(Write(ExampleQuestionsPowerOfPowerII[i]))
-            self.play(self.camera_frame.move_to, ExampleQuestionsPowerOfPowerII[i], self.camera_frame.set_width, 
-            ExampleQuestionsPowerOfPowerII[i].get_width()*2)
+        for j in range(3):
+            self.play(Write(ExampleQuestionsPowerOfPowerII[j]))
+            self.play(self.camera_frame.move_to, ExampleQuestionsPowerOfPowerII[j], self.camera_frame.set_width, 
+            ExampleQuestionsPowerOfPowerII[j].get_width()*2)
             self.wait(1)
 
         self.play(*[FadeOut(mob)for mob in self.mobjects])
