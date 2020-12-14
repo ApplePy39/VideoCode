@@ -466,3 +466,17 @@ class PowersWithExponentZero(MovingCameraScene):
 
         self.play(*[FadeOut(mob)for mob in self.mobjects])
         self.wait()
+
+class EndWords(Scene):
+    def construct(self):
+
+        EndingWords = TextMobject("I hope you guys learned something new today!").move_to(UP*0.5)
+        EndingWordsII = TextMobject("Like and Subscribe if you enjoyed the video!").move_to(DOWN*0.5)
+
+        EndingGroup = VGroup(EndingWords, EndingWordsII).set_color(color=[BLUE, RED])
+
+        self.play(Write(EndingGroup), run_time=3)
+        self.wait(2)
+
+        self.play(FadeOut(EndingGroup))
+        self.wait()
